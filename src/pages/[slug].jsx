@@ -1,23 +1,18 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "../styles/pizza.module.css";
 import pizzas from "../components/Home/data";
 import Link from "next/link";
 
-export default function slug() {
+export default function Slug() {
   const router = useRouter();
   const { slug } = router.query;
   const [pizza, setPizza] = useState([]);
   const newPizza = pizzas.filter((p) => p.slug.includes(slug));
   const otherPizzas = pizzas.filter((p) => p.slug !== slug);
 
-  useEffect(async () => {
-    console.log("s", newPizza[0]);
-    setPizza(newPizza);
-    console.log("s", pizza);
-  }, []);
-
+ 
   return (
     <div className={styles.container}>
       <Head>
